@@ -32,13 +32,13 @@ class Triangle
 	def triangle_shape()
 		case
 		when equilateral
-			puts 'This triangle is equilateral'
+			puts "This triangle is equilateral"
 		when isosceles
-			puts 'This triangle is isosceles! Also, that word is hard to type.'
+			puts "This triangle is isosceles! Also, that word is hard to type."
 		when scalene
-			puts 'This triangle is scalene and mathematically boring.'
+			puts "This triangle is scalene and mathematically boring."
 		else
-			puts 'This is not a valid response'
+			puts "This is not a valid response"
 		end
 	end
 
@@ -46,10 +46,10 @@ class Triangle
 	def triangle_angles()
 		angles = calculate_angles(side1, side2, side3)
 		
-		puts 'The angles of this triangle are ' + angles.join(', ')
+		puts "The angles of this triangle are " + angles.join(', ')
 		
 		if angles.include? 90
-			puts 'This triangle is also a right triangle!'
+			puts "This triangle is also a right triangle!"
 		end
 		puts ''
 	end
