@@ -1,23 +1,23 @@
-# Killer facts about triangles AWW YEAH
 class Triangle
 	attr_accessor :side1, :side2, :side3
-
+	
 	def initialize(side1, side2, side3)
 		@side1 = side1
 		@side2 = side2
 		@side3 = side3
 	end
 
+	
 	def equilateral()
 		if side1 == side2 && side2 == side3
-			return true
+			true
 		end
 	end
 
 
 	def isosceles()
 		if [side1 ,side2, side3].uniq.length == 2
-			return true
+			true
 		end
 	end
 
@@ -42,7 +42,7 @@ class Triangle
 			puts 'This triangle is scalene and mathematically boring.' 
 		end
 		
-		angles = self.calculate_angles(side1, side2, side3)
+		angles = calculate_angles(side1, side2, side3)
 		
 		puts 'The angles of this triangle are ' + angles.join(',')
 		puts 'This triangle is also a right triangle!' if angles.include? 90
