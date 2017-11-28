@@ -7,22 +7,9 @@ class Triangle
 		@side3 = side3
 	end
 
-	
-	def equilateral
-		side1 == side2 && side2 == side3
-	end
-
-
-	def isosceles
-		[side1 ,side2, side3].uniq.length == 2
-	end
-
-	def scalene
-		if equilateral || isosceles
-	    false
-	  else
-	    true
-	  end
+	def recite_facts
+		triangle_shape()
+		triangle_angles()
 	end
 	
 	def triangle_shape()
@@ -37,7 +24,23 @@ class Triangle
 			puts "This is not a valid response"
 		end
 	end
+	
+	def equilateral
+		side1 == side2 && side2 == side3
+	end
 
+
+	def isosceles
+		[side1, side2, side3].uniq.length == 2
+	end
+
+	def scalene
+		if equilateral || isosceles
+	    false
+	  else
+	    true
+		end
+	end
 	
 	def triangle_angles()
 		angles = calculate_angles(side1, side2, side3)
@@ -48,11 +51,6 @@ class Triangle
 			puts "This triangle is also a right triangle!"
 		end
 		puts ''
-	end
-	
-	def recite_facts
-		triangle_shape()
-		triangle_angles()
 	end
 
 	def calculate_angles(a, b, c)
