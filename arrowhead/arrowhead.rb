@@ -15,9 +15,6 @@ class Arrowhead
     },
   }
   
-  @region_error = "Unknown region, please provide a valid region."
-  @shape_error = "Unknown shape value. Are you sure you know what you're talking about?"
-  
   def self.classify(region, shape)
     self.invalid_params(region, shape)
     shapes = self.shapes(region)
@@ -27,7 +24,10 @@ class Arrowhead
   
   
   def self.invalid_params(region, shape)
+    @region_error = "Unknown region, please provide a valid region."
     raise @region_error unless valid_region? region
+    
+     @shape_error = "Unknown shape value. Are you sure you know what you're talking about?"
     raise @shape_error unless valid_shape?(region, shape)
   end
   
