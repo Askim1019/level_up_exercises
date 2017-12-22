@@ -2,7 +2,6 @@ require 'csv'
 
   catalog = CSV.read('dinodex.csv', headers: true, converters: :numeric)
   
-  
   def find_name(category, value)
     
     category = category.upcase
@@ -15,18 +14,21 @@ require 'csv'
     
   end
   
-  #african_catalog = CSV.read('african_dinosaur_export.csv')
+  #african_catalog = CSV.read('african_dinosaur_export.csv') 
+  
+  def big_dinosaurs
+    CSV.foreach('dinodex.csv', headers: true, converters: :numeric) do |row|
+      row["WEIGHT_IN_LBS"] = row["WEIGHT_IN_LBS"].to_i
+      
+      if row["WEIGHT_IN_LBS"] > 4000
+        puts row["NAME"]
+      end
+    end
+  end
   
   
-  
-  
-find_name("WALKING", "Biped")
-puts
-find_name("DIET", "Carnivore")
-puts
-find_name("PERIOD", "Late Cretaceous")
-puts
-find_name("WEIGHT_IN_LBS", 2200)
+find_name("walking", "Biped")
 puts
 
-puts catalog
+big_dinosaurs
+puts
